@@ -1,0 +1,38 @@
+<!-- Header-->
+<div class="header">
+  <h1>BREAD CRUMB SITE NAVIGATION</h1>
+  <hr>
+</div>
+<!-- navigation bar -->
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" routerLink='home'>Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink='departments'>Departments</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink='faculty'>Faculty</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink='facilities'>Facilities</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink='aboutus'>Aboutus</a>
+  </li>
+
+</ul>
+
+<!-- breadcrumb -->
+<div class="col">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" *ngFor="let item of breadcrumbsList; let i = index" [class.active]="i===breadcrumbsList.length-1">
+      <a [routerLink]="item.path" *ngIf="i!==breadcrumbsList.length-1">
+        {{ item.name }}
+      </a>
+      <span *ngIf="i===breadcrumbsList.length-1">{{ item.name }}</span>
+    </li>
+  </ol>
+</div>
+
+<router-outlet></router-outlet>
